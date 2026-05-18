@@ -6,9 +6,10 @@ const apiRoutes = require('./routes')
 
 const app = express();
 
-app.use('/api', apiRoutes);
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-const { AboutController, HomeController, InfoController } = require('./controllers')
+app.use('/api', apiRoutes);
 
 app.listen(ServerConfig.PORT, () => {
     console.log(`server start successfully at: ${ServerConfig.PORT}`);
