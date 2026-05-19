@@ -6,14 +6,8 @@ class CrudRepository {
     }
 
     async create(data) {
-        console.log("Inside CRUD repository");
-        
-        const response = await this.model.creat(data);
+        const response = await this.model.create(data);
         return response;
-        
-        Logger.error('Something went wrong in Crud repo : create');
-        throw error;
-        
     }
 
     async destory(data) {
