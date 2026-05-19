@@ -11,51 +11,33 @@ class CrudRepository {
     }
 
     async destory(data) {
-        try {
-            const response = await this.model.destory({
-                where: {
-                    id: data
-                }
-            });
-            return response;
-        } catch (error) {
-            Logger.error('Something went wrong in Crud repo : destory');
-            throw error;
-        }
+        const response = await this.model.destory({
+            where: {
+                id: data
+            }
+        });
+        return response;
     }
 
     async get(data) {
-        try {
-            const response = await this.model.findByPk(data);
-            return response;
-        } catch (error) {
-            Logger.error('Something went wrong in Crud repo : get');
-            throw error;
-        }
+
+        const response = await this.model.findByPk(data);
+        return response;
     }
 
     async getAll(data) {
-        try {
-            const response = await this.model.findAll(data);
-            return response;
-        } catch (error) {
-            Logger.error('Something went wrong in Crud repo: getAll');
-            throw error;
-        }
+
+        const response = await this.model.findAll(data);
+        return response;
     }
 
     async update(id, data) { //data --> ojbect{coloum : value,......}
-        try {
-            const response = await this.model.update(data, {
-                where: {
-                    id: id
-                }
-            });
-            return response;
-        } catch (error) {
-            Logger.error('Something went wrong in Crud repo: update');
-            throw error;
-        }
+        const response = await this.model.update(data, {
+            where: {
+                id: id
+            }
+        });
+        return response;
     }
 
 }
