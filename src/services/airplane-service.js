@@ -47,7 +47,6 @@ async function getAirplane(id) {
 
 async function deleteAirplane(id) {
     try {
-        console.log("Delete airplane with id", id);
         const response = await airplaneRepository.destroy(id);
         return response;
     } catch (error) {
