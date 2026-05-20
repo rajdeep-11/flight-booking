@@ -24,6 +24,12 @@ module.exports = {
       capacity: 900,
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    {
+      modelNumber: 'Boeing 767',
+      capacity: 180,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
    ])
   },
