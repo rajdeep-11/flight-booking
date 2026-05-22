@@ -7,7 +7,6 @@ const AppError = require('../utils/errors/app-error');
 const cityRepository = new CityRepository();
 
 async function createCity(data) {
-    console.log('inside city service');
     try {
         console.log('inside city crud TRY');
         const city = await cityRepository.create(data);
@@ -25,8 +24,31 @@ async function createCity(data) {
     }
 }
 
-//async function
+async function getCities() {
+    try {
+        const cities = await cityRepository.getAll();
+        return cities;
+    } catch (error) {
+        throw new AppError('Cannot able to fetch the cities', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
+
+async function deleteCity(id) {
+    try {
+        const response = await cityRepository.destroy(id);
+        return response;
+    } catch (error) {
+        if(error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The city you reqested is not present', error.statusCode);
+        }
+        throw new AppError('Cannot destroy the city', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
 
 module.exports = {
-    createCity
+    createCity,
+    getCities,
+    deleteCity
 }
