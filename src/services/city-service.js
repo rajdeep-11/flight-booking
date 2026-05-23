@@ -39,16 +39,27 @@ async function deleteCity(id) {
         const response = await cityRepository.destroy(id);
         return response;
     } catch (error) {
-        if(error.statusCode == StatusCodes.NOT_FOUND) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
             throw new AppError('The city you reqested is not present', error.statusCode);
         }
         throw new AppError('Cannot destroy the city', StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 
-
+async function updateCity(id, data) {
+    try {
+        const response = await cityRepository.update(id, data);
+        return response;
+    } catch (error) {
+        if (error.statusCode == StatusCodes.NOT_FOUND) {
+            throw new AppError('The city you reqested is not present', error.statusCode);
+        }
+        throw new AppError('Cannot update the city', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
 module.exports = {
     createCity,
     getCities,
-    deleteCity
+    deleteCity,
+    updateCity
 }
