@@ -52,11 +52,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    priece: {
+    price: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    boardingPass: {
+    boardingGate: {
       type: DataTypes.STRING,
     },
   }, {
