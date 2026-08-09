@@ -23,20 +23,20 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       arrivalAirportId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Airports',
-          key: 'code'
+          key: 'id'
         },
         onDelete: 'CASCADE'
       },
-      depertureAirportId: {
-        type: Sequelize.STRING,
+      departureAirportId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Airports',
-          key: 'code'
+          key: 'id'
         },
         onDelete: 'CASCADE'
       },
@@ -44,7 +44,7 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      depertureTime: {
+      departureTime: {
         type: Sequelize.DATE,
         allowNull: false
       },
@@ -52,11 +52,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      priece: {
+      price: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      boardingPass: {
+      boardingGate: {
         type: Sequelize.STRING
       },
       createdAt: {
