@@ -1,5 +1,5 @@
 const CrudRepository = require('./crud-repository');
-const { Flight, Airplane } = require('../models');
+const { Flight, Airplane, Airport } = require('../models');
 
 class FlightRepository extends CrudRepository {
     constructor() {
@@ -10,10 +10,16 @@ class FlightRepository extends CrudRepository {
         const response = await Flight.findAll({
             where: filter,
             order: sort,
-            include: {
-                model: Airplane,
-                required: true
-            }
+            include: [
+                {
+                    model: Airplane,
+                    required: true
+                },
+                // {
+                //     model: Airport,
+                //     required: true
+                // }
+            ]
         });
         return response;
     }
