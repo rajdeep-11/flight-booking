@@ -31,7 +31,6 @@ function validateCreateRequest(req, res, next) {
 
 function validateUpdateRequest(req, res, next) {
     if (!req.body.name && !req.body.code) {
-        console.log('Inside airport middlewares', req.body);
         const errorResponse = ErrorResponse;
         errorResponse.message = 'Something went wrong while updating airport';
         errorResponse.error = new AppError(['No update fields provided in the incoming request'], StatusCodes.BAD_REQUEST);
